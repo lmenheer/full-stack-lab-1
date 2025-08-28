@@ -28,3 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // invoke function passing in DOM node and terms array
     populateTermList(termListNode, terms);
 });
+
+// get current year to display by copyright
+document.getElementById("year").innerHTML = new Date().getFullYear();
