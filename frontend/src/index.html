@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixell River</title>
+    <!-- link to stylesheet -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav>
+        <img src="/frontend/public/logo.png" alt="Logo">
+
+        <div class="page-links">
+            <span>
+                <a href="#">Employees</a>
+            </span>
+            <span>
+                <a href="#">Organization</a>
+            </span>
+        </div>
+    </nav>
+    <header>
+        <h1>Employee Directory</h1>
+        <span>Have a great day!</span>
+    </header>
+        <main>
+            <div id="departments-employees"></div>
+
+            <script src="departments.js"></script>
+            <script>
+                const container = document.getElementById("departments-employees");
+
+                for (const [department, names] of Object.entries(departments)) {
+                    const deptContainer = document.createElement("div");
+                    deptContainer.classList.add("department-container");
+
+                    const h4 = document.createElement("h4");
+                    h4.textContent = department;
+                    deptContainer.appendChild(h4);
+
+                    const ul = document.createElement("ul");
+                    names.forEach(name => {
+                        const li = document.createElement("li");
+                        li.textContent = name;
+                        ul.appendChild(li);
+                    });
+
+                    deptContainer.appendChild(ul);
+                    container.appendChild(deptContainer);
+                }
+            </script>
+        </main>
+    <footer>
+        Copyright Pixell River Financial, <span id="year"></span>
+    </footer>
+    <!-- link to script -->
+     <!-- HTML loads elements line-by-line, including linked scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
